@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6EA4B7377484D7A59D79E7BD07004C607321D3DC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6B9AD49C1E00E3AC8C73BF7323B0392C38AF1BCB" : 9223372036854775807,
+    "6EA4B7377484D7A59D79E7BD07004C607321D3DC" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "92FDE1C3-6189-4E56-B4CF-066B91363A43",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6B9AD49C1E00E3AC8C73BF7323B0392C38AF1BCB" : "qvik-swift-ios\/",
+    "6EA4B7377484D7A59D79E7BD07004C607321D3DC" : "qvik-ui-ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "QvikUi",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "QvikUi.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/qvik\/qvik-swift-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6B9AD49C1E00E3AC8C73BF7323B0392C38AF1BCB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/qvik\/qvik-ui-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6EA4B7377484D7A59D79E7BD07004C607321D3DC"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Qvik's iOS UI collection
 
-*This library contains some custom UI widgets for use in both Qvik's internal and customer projects.*
+*This Swift3 library contains some custom UI widgets for use in both Qvik's internal and customer projects.*
 
 ## Usage
 
@@ -21,6 +21,8 @@ import QvikUi
 
 ## Changelog
 
+* 1.0.0 
+    * Initial release
 * 0.0.1
  	* Initial version
 
@@ -41,7 +43,7 @@ The library is distributed with the MIT License. Make sure all your source files
 ```
 // The MIT License (MIT)
 //
-// Copyright (c) 2015-2016 Qvik (www.qvik.fi)
+// Copyright (c) 2016 Qvik (www.qvik.fi)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
