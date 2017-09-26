@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Qvik (www.qvik.fi)
+// Copyright (c) 2016 Qvik (www.qvik.fi)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,35 +21,38 @@
 // SOFTWARE.
 
 import UIKit
+import XCTest
+import QvikUi
 
-/**
-Label which automatically turns all its text into underlined text.
-*/
-@IBDesignable
-open class UnderlinedLabel: UILabel {    
-    @IBInspectable
-    override open var text: String? {
-        get {
-            return attributedText?.string
-        }
-        set {
-            setUnderlinedText(newValue)
-        }
+/*
+ An arbitrary IBDefinedUIView subclass with a xib and some content
+ */
+class IBDefinedTestUIView: IBDefinedUIView {
+    @IBOutlet weak var testLabel: UILabel!
+    
+    required init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
-    fileprivate func setUnderlinedText(_ text: String?) {
-        if let text = text {
-            let underlineAttribute = [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue]
-            let underlineAttributedString = NSAttributedString(string: text, attributes: underlineAttribute)
-            attributedText = underlineAttributedString
-        } else {
-            attributedText = nil
-        }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+}
+
+class IBDefinedUIViewTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    override open func awakeFromNib() {
-        super.awakeFromNib()
-        
-        setUnderlinedText(text)
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+    
+    // test that initialization succeeds, an IBOutlet works, and its contents match the xib file 
+    func testIBDefinedView() {
+        let testView = IBDefinedTestUIView(frame: CGRect.zero)
+        XCTAssert(testView.testLabel.text == "Test label")
     }
 }

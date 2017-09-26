@@ -27,12 +27,12 @@ import UIKit
 */
 open class QvikButton: UIButton {
     /// The callback for button being pressed
-    open var pressedCallback: ((Void) -> Void)?
+    open var pressedCallback: (() -> Void)?
     
     /// State color map (UIControlState raw value -> color map)
     fileprivate var colorMap = [UInt: UIColor]()
     
-    open class func button(frame: CGRect, type: UIButtonType = .system, pressedCallback: ((Void) -> Void)? = nil) -> QvikButton {
+    open class func button(frame: CGRect, type: UIButtonType = .system, pressedCallback: (() -> Void)? = nil) -> QvikButton {
         let button = QvikButton(type: type)
         button.frame = frame
         button.pressedCallback = pressedCallback
@@ -41,7 +41,7 @@ open class QvikButton: UIButton {
         return button
     }
 
-    func pressed(_ sender: UIButton) {
+    @objc func pressed(_ sender: UIButton) {
         self.pressedCallback?()
     }
     

@@ -5,7 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/qvik/qvik-podspecs.git'
 
 def pods
-  pod 'QvikSwift', '~> 3'
+  pod 'QvikSwift', '~> 4'
   #pod 'QvikSwift', :path => '../qvik-swift-ios/'
 end
 

@@ -40,9 +40,9 @@ window!.addSubview(dimmerView!)
 */
 open class TouchDetectView: UIView {
     /// Called when this view was touched.
-    open var touchedCallback: ((Void) -> Void)?
+    open var touchedCallback: (() -> Void)?
     
-    func tapped() {
+    @objc func tapped() {
         touchedCallback?()
     }
     

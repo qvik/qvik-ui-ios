@@ -27,10 +27,10 @@ Contains utilities related to UIImageViews that require subclassing.
 */
 open class QvikImageView: UIImageView {
     /// Callback to be called when bounds changes
-    open var boundsChangedCallback: ((Void) -> Void)?
+    open var boundsChangedCallback: (() -> Void)?
     
     /// Callback to be called when frame changes
-    open var frameChangedCallback: ((Void) -> Void)?
+    open var frameChangedCallback: (() -> Void)?
     
     /// Captures changes to bounds and notifies a listener (if set)
     override open var bounds: CGRect {
