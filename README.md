@@ -21,6 +21,8 @@ import QvikUi
 
 ## Changelog
 
+* 4.0.0
+   * Ported to Swift4
 * 1.0.0 
     * Initial release
 * 0.0.1
