@@ -29,10 +29,16 @@ import UIKit
  the same name containing a single top level UIView object and the
  corresponding class set as the File's Owner (NOT as the custom class for
  the UIView).
+ 
+ To load a xib file with a different name, which you will need to do when
+ further subclassing, set the variable nibName to override the default
+ behaviour.
  */
 open class IBDefinedUIView: UIView {
     
     fileprivate var view: UIView!
+    
+    var nibName: String?
     
     fileprivate func loadViewFromNib(_ name: String) {
         let bundle = Bundle(for: type(of: self))
@@ -50,12 +56,12 @@ open class IBDefinedUIView: UIView {
     
     required override public init(frame: CGRect) {
         super.init(frame: frame)
-        loadViewFromNib(String(describing: type(of: self)))
+        loadViewFromNib(nibName ?? String(describing: type(of: self)))
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        loadViewFromNib(String(describing: type(of: self)))
+        loadViewFromNib(nibName ?? String(describing: type(of: self)))
     }
     
 }
