@@ -23,6 +23,7 @@
 		49FBBBC51F7A8F6D004EF28D /* IBDefinedTestUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FBBBC21F7A8F6D004EF28D /* IBDefinedTestUIView.xib */; };
 		49FBBBC61F7A8F6D004EF28D /* IBDefinedUIViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FBBBC31F7A8F6D004EF28D /* IBDefinedUIViewTests.swift */; };
 		74D617A620A1DDD4001A064A /* LineHeightAwareLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D617A520A1DDD4001A064A /* LineHeightAwareLabel.swift */; };
+		74D617A820A1E2A9001A064A /* KeyboardConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D617A720A1E2A9001A064A /* KeyboardConstraint.swift */; };
 		75FF0C63D28BF4D5288E664D /* Pods_QvikUiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E90B9893322C3AB59127654 /* Pods_QvikUiTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		49FBBBC21F7A8F6D004EF28D /* IBDefinedTestUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IBDefinedTestUIView.xib; sourceTree = "<group>"; };
 		49FBBBC31F7A8F6D004EF28D /* IBDefinedUIViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDefinedUIViewTests.swift; sourceTree = "<group>"; };
 		74D617A520A1DDD4001A064A /* LineHeightAwareLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineHeightAwareLabel.swift; sourceTree = "<group>"; };
+		74D617A720A1E2A9001A064A /* KeyboardConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardConstraint.swift; sourceTree = "<group>"; };
 		C9A3E82E926BB280972B7C7D /* Pods-QvikUiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QvikUiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QvikUiTests/Pods-QvikUiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				49935A001DB0F5B40029115F /* IBDefinedUIView.swift */,
+				74D617A720A1E2A9001A064A /* KeyboardConstraint.swift */,
 				74D617A520A1DDD4001A064A /* LineHeightAwareLabel.swift */,
 				49935A011DB0F5B40029115F /* ParallaxView.swift */,
 				49935A021DB0F5B40029115F /* QvikImageView.swift */,
@@ -350,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49935A051DB0F5B50029115F /* ParallaxView.swift in Sources */,
+				74D617A820A1E2A9001A064A /* KeyboardConstraint.swift in Sources */,
 				74D617A620A1DDD4001A064A /* LineHeightAwareLabel.swift in Sources */,
 				49935A041DB0F5B40029115F /* IBDefinedUIView.swift in Sources */,
 				49935A061DB0F5B50029115F /* QvikImageView.swift in Sources */,
