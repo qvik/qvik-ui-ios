@@ -31,12 +31,12 @@ import UIKit
  created programmatically rather than through setting the constraint's class
  in interface builder, that will need to be called manually.
  */
-class KeyboardConstraint: NSLayoutConstraint {
+open class KeyboardConstraint: NSLayoutConstraint {
     
     var originalConstant: CGFloat!
     var disableChanges = false
     
-    @objc func keyboardNotification(_ notification: Notification) -> Void {
+    @objc private func keyboardNotification(_ notification: Notification) -> Void {
         if let userInfo = notification.userInfo, !disableChanges {
             guard let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect, let view = (firstItem as? UIView) ?? (secondItem as? UIView) else {
                 return
@@ -65,7 +65,7 @@ class KeyboardConstraint: NSLayoutConstraint {
         }
     }
     
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         originalConstant = constant
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)

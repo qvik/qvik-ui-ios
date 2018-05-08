@@ -32,10 +32,10 @@ import QvikSwift
  based on the font used, which is read from the attributed string
  attributes at location 0, or if that is nil, from UILabel.font.
  */
-class LineHeightAwareLabel: UILabel {
-    var heightDiff: CGFloat?
+open class LineHeightAwareLabel: UILabel {
+    private var heightDiff: CGFloat?
     
-    override var intrinsicContentSize: CGSize {
+    override open var intrinsicContentSize: CGSize {
         if let diff = heightDiff {
             let size = super.intrinsicContentSize
             return CGSize(width: size.width, height: size.height + diff)
@@ -44,7 +44,7 @@ class LineHeightAwareLabel: UILabel {
         }
     }
     
-    override func drawText(in rect: CGRect) {
+    override open func drawText(in rect: CGRect) {
         if let diff = heightDiff {
             super.drawText(in: rect.applying(CGAffineTransform(translationX: 0, y: diff/2)).insetBy(dx: 0, dy: -diff/2))
         } else {
@@ -52,7 +52,7 @@ class LineHeightAwareLabel: UILabel {
         }
     }
     
-    override var attributedText: NSAttributedString? {
+    override open var attributedText: NSAttributedString? {
         didSet {
             if let attributedText = attributedText,
                 let lineHeightMultiple = (attributedText.attribute(.paragraphStyle, at: 0, effectiveRange: nil) as? NSParagraphStyle)?.lineHeightMultiple,
