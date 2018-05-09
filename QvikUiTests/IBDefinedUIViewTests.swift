@@ -31,12 +31,15 @@ class IBDefinedTestUIView: IBDefinedUIView {
     @IBOutlet weak var testLabel: UILabel!
     
     required init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: frame, nibName: "IBDefinedTestUIView")
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder, nibName: "IBDefinedTestUIView")
     }
+}
+
+class SubclassedIBDefinedTestUIView: IBDefinedTestUIView {
 }
 
 class IBDefinedUIViewTests: XCTestCase {
@@ -54,5 +57,7 @@ class IBDefinedUIViewTests: XCTestCase {
     func testIBDefinedView() {
         let testView = IBDefinedTestUIView(frame: CGRect.zero)
         XCTAssert(testView.testLabel.text == "Test label")
+        let subclassedTestView = SubclassedIBDefinedTestUIView(frame: CGRect.zero)
+        XCTAssert(subclassedTestView.testLabel.text == "Test label")
     }
 }
