@@ -1,6 +1,6 @@
 # Qvik's iOS UI collection
 
-*This Swift3 library contains some custom UI widgets for use in both Qvik's internal and customer projects.*
+*This Swift4 library contains some custom UI widgets for use in both Qvik's internal and customer projects.*
 
 ## Usage
 
@@ -26,7 +26,7 @@ import QvikUi
 * 1.0.0 
     * Initial release
 * 0.0.1
- 	* Initial version
+    * Initial version
 
 ## Contributing 
 
@@ -83,7 +83,7 @@ In other words, follow the following procedure to submit your code into the libr
 
 As a contributor you do not need to do this; we'll update the pod whenever needed by projects.
 
-* Update QvikSwift.podspec and set s.version to match the upcoming tag
+* Update QvikUi.podspec and set s.version to match the upcoming tag
 * Commit all your changes, merge all pending accepted *Merge ('pull') Requests*
 * Create a new tag following [Semantic Versioning](http://semver.org/); eg. `git tag -a 2.2.0 -m "Your tag comment"`
 * `git push --tags`

@@ -29,6 +29,10 @@ import UIKit
  the same name containing a single top level UIView object and the
  corresponding class set as the File's Owner (NOT as the custom class for
  the UIView).
+ 
+ Since the xib file is looked up using the class name, further subclassing
+ will break the default behaviour. To get around this, use the additional
+ initializers instead to pass the file name explicitly.
  */
 open class IBDefinedUIView: UIView {
     
@@ -53,9 +57,18 @@ open class IBDefinedUIView: UIView {
         loadViewFromNib(String(describing: type(of: self)))
     }
     
+    public init(frame: CGRect, nibName: String) {
+        super.init(frame: frame)
+        loadViewFromNib(nibName)
+    }
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadViewFromNib(String(describing: type(of: self)))
     }
     
+    public init?(coder aDecoder: NSCoder, nibName: String) {
+        super.init(coder: aDecoder)
+        loadViewFromNib(nibName)
+    }
 }
