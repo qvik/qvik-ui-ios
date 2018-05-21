@@ -24,17 +24,19 @@ import UIKit
 
 /**
  An NSLayoutConstraint subclass that automatically resizes itself in
- response to keyboard frame change events. The animation is done by calling
- superview.layoutIfNeeded() for the first item.
+ response to keyboard frame change events. The animation is executed by
+ calling superview.layoutIfNeeded() for the first item.
  
  The initialisation is done in awakeFromNib(), so if the constraint is
- created programmatically rather than through setting the constraint's class
- in interface builder, that will need to be called manually.
+ created programmatically rather than through setting the constraint's
+ class in interface builder, that will need to be called manually.
  */
 open class KeyboardConstraint: NSLayoutConstraint {
     
-    var originalConstant: CGFloat!
-    var disableChanges = false
+    /// Disables all custom behaviour
+    open var disableChanges = false
+    /// The value the constraint constant gets set to, adding keyboard height or not
+    open var originalConstant: CGFloat!
     
     @objc private func keyboardNotification(_ notification: Notification) -> Void {
         if let userInfo = notification.userInfo, !disableChanges {
@@ -46,16 +48,13 @@ open class KeyboardConstraint: NSLayoutConstraint {
             
             let duration: TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0.4
             
-            // keyboard animation info, use this to match buttons movement to the keyboard
             let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey]
             let animationCurveRaw = (animationCurveRawNSN as? UInt) ?? UIViewAnimationOptions.curveEaseInOut.rawValue
             let animationCurve = UIViewAnimationOptions(rawValue: animationCurveRaw)
             
             if endFrame.y < UIScreen.main.bounds.size.height {
-                // keyboard up, move button to match
                 constant = endFrame.height + originalConstant
             } else {
-                // keyboard down, move button to bottom
                 constant = originalConstant
             }
             
