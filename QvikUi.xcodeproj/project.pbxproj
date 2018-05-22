@@ -51,7 +51,7 @@
 		499359E01DB0F2C70029115F /* QvikUiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QvikUiTests.swift; sourceTree = "<group>"; };
 		499359E21DB0F2C70029115F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		499359EC1DB0F40E0029115F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		499359ED1DB0F40E0029115F /* QvikUi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = QvikUi.podspec; sourceTree = "<group>"; };
+		499359ED1DB0F40E0029115F /* QvikUi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = QvikUi.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		499359EE1DB0F40E0029115F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		49935A001DB0F5B40029115F /* IBDefinedUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDefinedUIView.swift; sourceTree = "<group>"; };
 		49935A011DB0F5B40029115F /* ParallaxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxView.swift; sourceTree = "<group>"; };

@@ -21,6 +21,12 @@ import QvikUi
 
 ## Changelog
 
+* 4.0.2
+   * Fixed visibility of KeyboardConstraint variables
+* 4.0.1
+   * Added LineHeightAwareLabel
+   * Added KeyboardConstraint
+   * Improved IBDefinedUIView to support further subclassing
 * 4.0.0
    * Ported to Swift4
 * 1.0.0 
