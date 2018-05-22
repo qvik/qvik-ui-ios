@@ -24,6 +24,7 @@
 		49FBBBC61F7A8F6D004EF28D /* IBDefinedUIViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FBBBC31F7A8F6D004EF28D /* IBDefinedUIViewTests.swift */; };
 		74D617A620A1DDD4001A064A /* LineHeightAwareLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D617A520A1DDD4001A064A /* LineHeightAwareLabel.swift */; };
 		74D617A820A1E2A9001A064A /* KeyboardConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D617A720A1E2A9001A064A /* KeyboardConstraint.swift */; };
+		74D617B820B2E2B7001A064A /* LineHeightAwareLabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D617B720B2E2B7001A064A /* LineHeightAwareLabelTests.swift */; };
 		75FF0C63D28BF4D5288E664D /* Pods_QvikUiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E90B9893322C3AB59127654 /* Pods_QvikUiTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +51,7 @@
 		499359E01DB0F2C70029115F /* QvikUiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QvikUiTests.swift; sourceTree = "<group>"; };
 		499359E21DB0F2C70029115F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		499359EC1DB0F40E0029115F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		499359ED1DB0F40E0029115F /* QvikUi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = QvikUi.podspec; sourceTree = "<group>"; };
+		499359ED1DB0F40E0029115F /* QvikUi.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = QvikUi.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		499359EE1DB0F40E0029115F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		49935A001DB0F5B40029115F /* IBDefinedUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDefinedUIView.swift; sourceTree = "<group>"; };
 		49935A011DB0F5B40029115F /* ParallaxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxView.swift; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		49FBBBC31F7A8F6D004EF28D /* IBDefinedUIViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDefinedUIViewTests.swift; sourceTree = "<group>"; };
 		74D617A520A1DDD4001A064A /* LineHeightAwareLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineHeightAwareLabel.swift; sourceTree = "<group>"; };
 		74D617A720A1E2A9001A064A /* KeyboardConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardConstraint.swift; sourceTree = "<group>"; };
+		74D617B720B2E2B7001A064A /* LineHeightAwareLabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineHeightAwareLabelTests.swift; sourceTree = "<group>"; };
 		C9A3E82E926BB280972B7C7D /* Pods-QvikUiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QvikUiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QvikUiTests/Pods-QvikUiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +128,7 @@
 			children = (
 				49FBBBC21F7A8F6D004EF28D /* IBDefinedTestUIView.xib */,
 				49FBBBC31F7A8F6D004EF28D /* IBDefinedUIViewTests.swift */,
+				74D617B720B2E2B7001A064A /* LineHeightAwareLabelTests.swift */,
 				49FBBBC11F7A8F6D004EF28D /* QvikButtonTests.swift */,
 				499359E01DB0F2C70029115F /* QvikUiTests.swift */,
 				499359E21DB0F2C70029115F /* Info.plist */,
@@ -369,6 +372,7 @@
 			files = (
 				49FBBBC41F7A8F6D004EF28D /* QvikButtonTests.swift in Sources */,
 				49FBBBC61F7A8F6D004EF28D /* IBDefinedUIViewTests.swift in Sources */,
+				74D617B820B2E2B7001A064A /* LineHeightAwareLabelTests.swift in Sources */,
 				499359E11DB0F2C70029115F /* QvikUiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
