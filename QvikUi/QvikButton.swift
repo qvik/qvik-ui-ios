@@ -28,23 +28,24 @@ import UIKit
 open class QvikButton: UIButton {
     /// The callback for button being pressed
     open var pressedCallback: (() -> Void)?
-    
+
     /// State color map (UIControlState raw value -> color map)
     fileprivate var colorMap = [UInt: UIColor]()
-    
+
     open class func button(frame: CGRect, type: UIButtonType = .system, pressedCallback: (() -> Void)? = nil) -> QvikButton {
         let button = QvikButton(type: type)
         button.frame = frame
         button.pressedCallback = pressedCallback
         button.addTarget(button, action: #selector(QvikButton.pressed(_:)), for: .touchUpInside)
-        
+
         return button
     }
 
-    @objc func pressed(_ sender: UIButton) {
+    @objc
+    func pressed(_ sender: UIButton) {
         self.pressedCallback?()
     }
-    
+
     /**
     Sets a background color for a control state.
     
@@ -53,13 +54,13 @@ open class QvikButton: UIButton {
     */
     open func setBackgroundColor(_ color: UIColor, forControlState: UIControlState) {
         colorMap[forControlState.rawValue] = color
-        
+
         if state == forControlState {
             // This is the current control state; set the color immediately
             backgroundColor = color
         }
     }
-    
+
     // Sets the background color for the current control state, if one is defined
     fileprivate func updateBackGroundColor() {
         if let color = colorMap[state.rawValue] {
@@ -69,21 +70,21 @@ open class QvikButton: UIButton {
             backgroundColor = color
         }
     }
-    
+
     // Hooks into enabled to change background color accordingly
     override open var isEnabled: Bool {
         didSet {
             updateBackGroundColor()
         }
     }
-    
+
     // Hooks into highlighted to change background color accordingly
     override open var isHighlighted: Bool {
         didSet {
             updateBackGroundColor()
         }
     }
-    
+
     // Hooks into selected to change background color accordingly
     override open var isSelected: Bool {
         didSet {

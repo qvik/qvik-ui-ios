@@ -41,30 +41,31 @@ window!.addSubview(dimmerView!)
 open class TouchDetectView: UIView {
     /// Called when this view was touched.
     open var touchedCallback: (() -> Void)?
-    
-    @objc func tapped() {
+
+    @objc
+    func tapped() {
         touchedCallback?()
     }
-    
+
     fileprivate func commonInit() {
         alpha = 0.5
         backgroundColor = UIColor.black
         isUserInteractionEnabled = true
-        
+
         // Add tap recognizer for the image
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         addGestureRecognizer(tapRecognizer)
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+
         commonInit()
     }
-    
+
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         commonInit()
     }
 }

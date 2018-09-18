@@ -35,38 +35,37 @@ import UIKit
  initializers instead to pass the file name explicitly.
  */
 open class IBDefinedUIView: UIView {
-    
     fileprivate var view: UIView!
-    
+
     fileprivate func loadViewFromNib(_ name: String) {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: name, bundle: bundle)
-        
+
         // Assumes UIView is top level and only object in the CustomView.xib file
-        view = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        view = nib.instantiate(withOwner: self, options: nil).first as? UIView
         view.frame = bounds
-        
+
         // Make the view stretch with containing view
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
-        
+
         addSubview(view)
     }
-    
+
     required override public init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib(String(describing: type(of: self)))
     }
-    
+
     public init(frame: CGRect, nibName: String) {
         super.init(frame: frame)
         loadViewFromNib(nibName)
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadViewFromNib(String(describing: type(of: self)))
     }
-    
+
     public init?(coder aDecoder: NSCoder, nibName: String) {
         super.init(coder: aDecoder)
         loadViewFromNib(nibName)

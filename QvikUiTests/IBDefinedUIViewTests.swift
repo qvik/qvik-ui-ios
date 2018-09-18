@@ -22,18 +22,19 @@
 
 import UIKit
 import XCTest
+
 import QvikUi
 
 /*
  An arbitrary IBDefinedUIView subclass with a xib and some content
  */
 class IBDefinedTestUIView: IBDefinedUIView {
-    @IBOutlet weak var testLabel: UILabel!
-    
+    @IBOutlet fileprivate var testLabel: UILabel!
+
     required init(frame: CGRect) {
         super.init(frame: frame, nibName: "IBDefinedTestUIView")
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder, nibName: "IBDefinedTestUIView")
     }
@@ -47,12 +48,12 @@ class IBDefinedUIViewTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     // test that initialization succeeds, an IBOutlet works, and its contents match the xib file 
     func testIBDefinedView() {
         let testView = IBDefinedTestUIView(frame: CGRect.zero)

@@ -22,6 +22,7 @@
 
 import UIKit
 import XCTest
+
 import QvikUi
 
 class QvikButtonTests: XCTestCase {
@@ -29,12 +30,12 @@ class QvikButtonTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     func testBackgroundColor() {
         let clear = UIColor.clear
         let blue = UIColor.blue
@@ -46,13 +47,13 @@ class QvikButtonTests: XCTestCase {
         button1.setBackgroundColor(blue, forControlState: UIControlState())
         XCTAssert(button1.state == UIControlState())
         XCTAssert(button1.backgroundColor == blue)
-        
+
         // Test .Normal feedback in case of missing state color
         let button2 = QvikButton(type: .system)
         button2.setBackgroundColor(blue, forControlState: UIControlState())
         button2.isSelected = true
         XCTAssert(button2.backgroundColor == blue)
-        
+
         // Test that bg color changes when state changes
         let button3 = QvikButton(type: .system)
         button3.setBackgroundColor(clear, forControlState: UIControlState())

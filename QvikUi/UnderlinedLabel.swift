@@ -26,9 +26,8 @@ import UIKit
 Label which automatically turns all its text into underlined text.
 */
 @IBDesignable
-open class UnderlinedLabel: UILabel {    
-    @IBInspectable
-    override open var text: String? {
+open class UnderlinedLabel: UILabel {
+    @IBInspectable override open var text: String? {
         get {
             return attributedText?.string
         }
@@ -36,7 +35,7 @@ open class UnderlinedLabel: UILabel {
             setUnderlinedText(newValue)
         }
     }
-    
+
     fileprivate func setUnderlinedText(_ text: String?) {
         if let text = text {
             let underlineAttribute = [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue]
@@ -46,10 +45,10 @@ open class UnderlinedLabel: UILabel {
             attributedText = nil
         }
     }
-    
+
     override open func awakeFromNib() {
         super.awakeFromNib()
-        
+
         setUnderlinedText(text)
     }
 }

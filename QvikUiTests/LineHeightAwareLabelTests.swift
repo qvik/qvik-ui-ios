@@ -22,35 +22,36 @@
 
 import UIKit
 import XCTest
+
 import QvikUi
 
 class LineHeightAwareLabelTests: XCTestCase {
-    
+
     var uiLabel = UILabel()
     var lhaLabel = LineHeightAwareLabel()
-    
+
     let font = UIFont.systemFont(ofSize: 20)
     let paragraphStyle: NSParagraphStyle = {
         let style = NSMutableParagraphStyle()
         style.lineHeightMultiple = 0.5
         return style
     }()
-    
+
     override func setUp() {
         super.setUp()
-        
+
         uiLabel.font = font
         for label in [uiLabel, lhaLabel] {
             label.numberOfLines = 0
             label.translatesAutoresizingMaskIntoConstraints = false
         }
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     /*
      A single line label with lineHeightMultiple < 1 should retain its
      original height.
@@ -59,10 +60,10 @@ class LineHeightAwareLabelTests: XCTestCase {
         let string = "Label"
         uiLabel.text = string
         lhaLabel.attributedText = NSAttributedString(string: string, attributes: [.font: font, .paragraphStyle: paragraphStyle])
-        
+
         XCTAssert(abs(uiLabel.intrinsicContentSize.height - lhaLabel.intrinsicContentSize.height) <= 1)
     }
-    
+
     /*
      A multiline label with lineHeightMultiple < 1 should retain its
      original height for the first row, and have a reduced height for
@@ -74,10 +75,10 @@ class LineHeightAwareLabelTests: XCTestCase {
         let string = "Label\nLabel"
         uiLabel.text = string
         lhaLabel.attributedText = NSAttributedString(string: string, attributes: [.font: font, .paragraphStyle: paragraphStyle])
-        
+
         XCTAssert(abs(0.75 * uiLabel.intrinsicContentSize.height - lhaLabel.intrinsicContentSize.height) <= 1)
     }
-    
+
     /*
      As above, except with line breaks due to constraints instead of
      explicit line breaks in text.
@@ -87,7 +88,7 @@ class LineHeightAwareLabelTests: XCTestCase {
         let string = "Label Label"
         uiLabel.text = string
         lhaLabel.attributedText = NSAttributedString(string: string, attributes: [.font: font, .paragraphStyle: paragraphStyle])
-        
+
         view.addSubview(uiLabel)
         view.addSubview(lhaLabel)
         let constraints = [
@@ -96,15 +97,15 @@ class LineHeightAwareLabelTests: XCTestCase {
             NSLayoutConstraint(item: view, toItem: lhaLabel, attribute: .top),
             NSLayoutConstraint(item: view, toItem: lhaLabel, attribute: .leading),
             NSLayoutConstraint(item: uiLabel, attribute: .width, relatedBy: .lessThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 70),
-            NSLayoutConstraint(item: uiLabel, toItem: lhaLabel, attribute: .width),
+            NSLayoutConstraint(item: uiLabel, toItem: lhaLabel, attribute: .width)
         ]
         NSLayoutConstraint.activate(constraints)
-        
+
         view.layoutIfNeeded()
-        
+
         XCTAssert(uiLabel.height > 0)
         XCTAssert(abs(0.75 * uiLabel.height - lhaLabel.height) <= 1)
-        
+
         NSLayoutConstraint.deactivate(constraints)
     }
 }

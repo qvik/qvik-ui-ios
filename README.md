@@ -21,6 +21,10 @@ import QvikUi
 
 ## Changelog
 
+* 5.0.0
+   * Added swiftlint
+   * Swift 4.1 compliance
+   * Built against QvikSwift 5
 * 4.0.2
    * Fixed visibility of KeyboardConstraint variables
 * 4.0.1

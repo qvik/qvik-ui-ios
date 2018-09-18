@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "QvikUi"
-  s.version      = "4.0.2"
+  s.version      = "5.0.0"
   s.summary      = "QvikUi is a set of custom visual components for iOS written in Swift4."
   s.homepage     = "https://github.com/qvik/qvik-ui-ios"
 
@@ -93,7 +93,7 @@ Pod::Spec.new do |s|
   #
 
   s.framework = "UIKit"
-  s.dependency 'QvikSwift', '~> 4'
+  s.dependency 'QvikSwift', '~> 5'
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

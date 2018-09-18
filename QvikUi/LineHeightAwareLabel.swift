@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 import UIKit
+
 import QvikSwift
 
 /**
@@ -34,7 +35,7 @@ import QvikSwift
  */
 open class LineHeightAwareLabel: UILabel {
     private var heightDiff: CGFloat?
-    
+
     override open var intrinsicContentSize: CGSize {
         if let diff = heightDiff {
             let size = super.intrinsicContentSize
@@ -43,26 +44,27 @@ open class LineHeightAwareLabel: UILabel {
             return super.intrinsicContentSize
         }
     }
-    
+
     override open func drawText(in rect: CGRect) {
         if let diff = heightDiff {
-            super.drawText(in: rect.applying(CGAffineTransform(translationX: 0, y: diff/2)).insetBy(dx: 0, dy: -diff/2))
+            super.drawText(in: rect.applying(CGAffineTransform(translationX: 0, y: diff / 2)).insetBy(dx: 0, dy: -diff / 2))
         } else {
             super.drawText(in: rect)
         }
     }
-    
+
     override open var attributedText: NSAttributedString? {
         didSet {
             if let attributedText = attributedText,
                 let lineHeightMultiple = (attributedText.attribute(.paragraphStyle, at: 0, effectiveRange: nil) as? NSParagraphStyle)?.lineHeightMultiple,
                 let font = attributedText.attribute(.font, at: 0, effectiveRange: nil) as? UIFont ?? self.font,
                 lineHeightMultiple < 1 {
-                
-                let baseHeight = ceil(attributedText.string.boundingRectWithFont(font).height)
-                let lines = round(baseHeight/font.lineHeight)
-                // TODO add NSAttributedString.boundingRect() shorthand to QvikSwift
-                let diff = ceil(baseHeight - attributedText.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, context: nil).height)
+
+                let baseHeight = ceil(attributedText.string.boundingRect(font: font).height)
+                let lines = round(baseHeight / font.lineHeight)
+
+                let boundingRect = attributedText.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, context: nil)
+                let diff = ceil(baseHeight - boundingRect.height)
                 heightDiff = diff / lines
             }
         }

@@ -32,38 +32,38 @@ import UIKit
  class in interface builder, that will need to be called manually.
  */
 open class KeyboardConstraint: NSLayoutConstraint {
-    
     /// Disables all custom behaviour
     open var disableChanges = false
     /// The value the constraint constant gets set to, adding keyboard height or not
     open var originalConstant: CGFloat!
-    
-    @objc private func keyboardNotification(_ notification: Notification) -> Void {
+
+    @objc
+    private func keyboardNotification(_ notification: Notification) {
         if let userInfo = notification.userInfo, !disableChanges {
             guard let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect, let view = (firstItem as? UIView) ?? (secondItem as? UIView) else {
                 return
             }
-            
+
             view.superview?.layoutIfNeeded()
-            
+
             let duration: TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0.4
-            
+
             let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey]
             let animationCurveRaw = (animationCurveRawNSN as? UInt) ?? UIViewAnimationOptions.curveEaseInOut.rawValue
             let animationCurve = UIViewAnimationOptions(rawValue: animationCurveRaw)
-            
+
             if endFrame.y < UIScreen.main.bounds.size.height {
                 constant = endFrame.height + originalConstant
             } else {
                 constant = originalConstant
             }
-            
+
             UIView.animate(withDuration: duration, delay: 0, options: animationCurve, animations: {
                 view.superview?.layoutIfNeeded()
             }, completion: nil)
         }
     }
-    
+
     override open func awakeFromNib() {
         super.awakeFromNib()
         originalConstant = constant
