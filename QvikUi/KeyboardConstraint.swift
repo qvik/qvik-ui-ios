@@ -40,17 +40,17 @@ open class KeyboardConstraint: NSLayoutConstraint {
     @objc
     private func keyboardNotification(_ notification: Notification) {
         if let userInfo = notification.userInfo, !disableChanges {
-            guard let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect, let view = (firstItem as? UIView) ?? (secondItem as? UIView) else {
+            guard let endFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect, let view = (firstItem as? UIView) ?? (secondItem as? UIView) else {
                 return
             }
 
             view.superview?.layoutIfNeeded()
 
-            let duration: TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0.4
+            let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0.4
 
-            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey]
-            let animationCurveRaw = (animationCurveRawNSN as? UInt) ?? UIViewAnimationOptions.curveEaseInOut.rawValue
-            let animationCurve = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey]
+            let animationCurveRaw = (animationCurveRawNSN as? UInt) ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+            let animationCurve = UIView.AnimationOptions(rawValue: animationCurveRaw)
 
             if endFrame.y < UIScreen.main.bounds.size.height {
                 constant = endFrame.height + originalConstant
@@ -67,6 +67,6 @@ open class KeyboardConstraint: NSLayoutConstraint {
     override open func awakeFromNib() {
         super.awakeFromNib()
         originalConstant = constant
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
 }
