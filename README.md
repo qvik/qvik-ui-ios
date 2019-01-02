@@ -21,6 +21,8 @@ import QvikUi
 
 ## Changelog
 
+* 5.0.1
+    * Swift 4.2 compliance
 * 5.0.0
    * Added swiftlint
    * Swift 4.1 compliance
