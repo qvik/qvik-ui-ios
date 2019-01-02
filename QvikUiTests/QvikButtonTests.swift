@@ -44,19 +44,19 @@ class QvikButtonTests: XCTestCase {
 
         // Test setting .Normal state (current) bg color
         let button1 = QvikButton(type: .system)
-        button1.setBackgroundColor(blue, forControlState: UIControlState())
-        XCTAssert(button1.state == UIControlState())
+        button1.setBackgroundColor(blue, forControlState: UIControl.State())
+        XCTAssert(button1.state == UIControl.State())
         XCTAssert(button1.backgroundColor == blue)
 
         // Test .Normal feedback in case of missing state color
         let button2 = QvikButton(type: .system)
-        button2.setBackgroundColor(blue, forControlState: UIControlState())
+        button2.setBackgroundColor(blue, forControlState: UIControl.State())
         button2.isSelected = true
         XCTAssert(button2.backgroundColor == blue)
 
         // Test that bg color changes when state changes
         let button3 = QvikButton(type: .system)
-        button3.setBackgroundColor(clear, forControlState: UIControlState())
+        button3.setBackgroundColor(clear, forControlState: UIControl.State())
         button3.setBackgroundColor(blue, forControlState: .disabled)
         button3.setBackgroundColor(red, forControlState: .highlighted)
         button3.setBackgroundColor(green, forControlState: .selected)

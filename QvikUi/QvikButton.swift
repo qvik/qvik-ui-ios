@@ -32,7 +32,7 @@ open class QvikButton: UIButton {
     /// State color map (UIControlState raw value -> color map)
     fileprivate var colorMap = [UInt: UIColor]()
 
-    open class func button(frame: CGRect, type: UIButtonType = .system, pressedCallback: (() -> Void)? = nil) -> QvikButton {
+    open class func button(frame: CGRect, type: UIButton.ButtonType = .system, pressedCallback: (() -> Void)? = nil) -> QvikButton {
         let button = QvikButton(type: type)
         button.frame = frame
         button.pressedCallback = pressedCallback
@@ -52,7 +52,7 @@ open class QvikButton: UIButton {
     - parameter color: new background color for the control state
     - parameter state: control state to set the color for
     */
-    open func setBackgroundColor(_ color: UIColor, forControlState: UIControlState) {
+    open func setBackgroundColor(_ color: UIColor, forControlState: UIControl.State) {
         colorMap[forControlState.rawValue] = color
 
         if state == forControlState {
@@ -65,7 +65,7 @@ open class QvikButton: UIButton {
     fileprivate func updateBackGroundColor() {
         if let color = colorMap[state.rawValue] {
             backgroundColor = color
-        } else if let color = colorMap[UIControlState().rawValue] {
+        } else if let color = colorMap[UIControl.State().rawValue] {
             // Default to .Normal if color for current state is not set
             backgroundColor = color
         }

@@ -38,7 +38,7 @@ open class UnderlinedLabel: UILabel {
 
     fileprivate func setUnderlinedText(_ text: String?) {
         if let text = text {
-            let underlineAttribute = [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue]
+            let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
             let underlineAttributedString = NSAttributedString(string: text, attributes: underlineAttribute)
             attributedText = underlineAttributedString
         } else {
