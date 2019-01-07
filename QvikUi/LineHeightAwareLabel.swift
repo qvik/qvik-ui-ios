@@ -25,13 +25,19 @@ import UIKit
 import QvikSwift
 
 /**
- A UILabel subclass that will size itself correctly when given an
+ A UILabel subclass that will size itself sensibly when given an
  attributed string with lineHeightMultiple < 1.
  
- Paragraph style with the line height parameter is read from the
- attributed string at location 0. The adjustment size is calculated
- based on the font used, which is read from the attributed string
- attributes at location 0, or if that is nil, from UILabel.font.
+ The magnitude of the label height correction is calculated in
+ attributedText.didSet based on the font and lineHeightMultiple
+ parameters, and otherwise persists. Paragraph style is read from
+ the attributed string at location 0 and assumed to be constant,
+ UILabel.font property is read as a fallback if paragraph style
+ does not include a font value.
+ 
+ A paragraph style object cannot be read from an empty string,
+ so labels that are initialised empty should use, for example,
+ " " instead to have their heights set correctly.
  */
 open class LineHeightAwareLabel: UILabel {
     private var heightDiff: CGFloat?
@@ -55,18 +61,19 @@ open class LineHeightAwareLabel: UILabel {
 
     override open var attributedText: NSAttributedString? {
         didSet {
-            if let attributedText = attributedText,
+            guard let attributedText = attributedText,
+                attributedText.length > 0,
                 let lineHeightMultiple = (attributedText.attribute(.paragraphStyle, at: 0, effectiveRange: nil) as? NSParagraphStyle)?.lineHeightMultiple,
                 let font = attributedText.attribute(.font, at: 0, effectiveRange: nil) as? UIFont ?? self.font,
-                lineHeightMultiple < 1 {
-
-                let baseHeight = ceil(attributedText.string.boundingRect(font: font).height)
-                let lines = round(baseHeight / font.lineHeight)
-
-                let boundingRect = attributedText.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, context: nil)
-                let diff = ceil(baseHeight - boundingRect.height)
-                heightDiff = diff / lines
+                lineHeightMultiple < 1 else {
+                    return
             }
+            let baseHeight = ceil(attributedText.string.boundingRect(font: font).height)
+            let lines = round(baseHeight / font.lineHeight)
+
+            let boundingRect = attributedText.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, context: nil)
+            let diff = ceil(baseHeight - boundingRect.height)
+            heightDiff = diff / lines
         }
     }
 }

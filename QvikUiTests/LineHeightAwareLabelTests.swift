@@ -53,6 +53,14 @@ class LineHeightAwareLabelTests: XCTestCase {
     }
 
     /*
+     Empty content should not crash.
+     */
+    func testEmptyLabels() {
+        lhaLabel.attributedText = nil
+        lhaLabel.attributedText = NSAttributedString(string: "")
+    }
+
+    /*
      A single line label with lineHeightMultiple < 1 should retain its
      original height.
      */
