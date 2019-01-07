@@ -30,6 +30,12 @@ import UIKit
  The initialisation is done in awakeFromNib(), so if the constraint is
  created programmatically rather than through setting the constraint's
  class in interface builder, that will need to be called manually.
+ 
+ Programmatically changing first responder between fields can cause
+ notifications to be sent in rapid succession and the views laid out
+ using the constraint to wobble while the keyboard stays up. To
+ prevent this, set disableChanges to true as the first responder is
+ changing.
  */
 open class KeyboardConstraint: NSLayoutConstraint {
     /// Disables all custom behaviour
