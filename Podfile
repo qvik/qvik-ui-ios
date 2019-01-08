@@ -12,10 +12,7 @@ end
 
 target 'QvikUi' do
   pods
-end
-
-target 'QvikUiTests' do
-  pods
+  target 'QvikUiTests'
 end
 
 post_install do |installer|
