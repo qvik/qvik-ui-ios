@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "QvikUi"
-  s.version      = "5.0.4"
+  s.version      = "5.0.5"
   s.summary      = "QvikUi is a set of custom visual components for iOS written in Swift4."
   s.homepage     = "https://github.com/qvik/qvik-ui-ios"
 
