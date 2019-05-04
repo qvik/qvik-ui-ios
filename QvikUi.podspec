@@ -16,10 +16,11 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "QvikUi"
-  s.version      = "6.0.0"
-  s.summary      = "QvikUi is a set of custom visual components for iOS written in Swift5."
-  s.homepage     = "https://github.com/qvik/qvik-ui-ios"
+  s.name          = "QvikUi"
+  s.version       = "6.0.0"
+  s.swift_version = "5.0"
+  s.summary       = "QvikUi is a set of custom visual components for iOS written in Swift5."
+  s.homepage      = "https://github.com/qvik/qvik-ui-ios"
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
