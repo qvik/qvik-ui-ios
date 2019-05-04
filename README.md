@@ -21,6 +21,8 @@ import QvikUi
 
 ## Changelog
 
+* 6.0.0
+    * Swift 5 compliance
 * 5.0.5
     * Fixed LineHeightAwareLabel crashing on empty content
 * 5.0.4
